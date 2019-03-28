@@ -4,26 +4,31 @@ import android.arch.persistence.room.TypeConverter;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 
+import com.example.sibintektest.data.pojo.Currency;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class CurrencyConverter {
+    private static Gson gson = new Gson();
+
     @TypeConverter
-    public static ArrayList<String> fromString(String value) {
-        Type listType = new TypeToken<ArrayList<String>>() {
+    public static List<Currency> stringToCurrency(String data) {
+        if (data == null) return Collections.emptyList();
+
+        Type listType = new TypeToken<List<Currency>>() {
         }.getType();
-        return new Gson().fromJson(value, listType);
+        return gson.fromJson(data, listType);
     }
 
     @TypeConverter
-    public static String toArrayList(ArrayList<String> list) {
-        Gson gson = new Gson();
-        String json = gson.toJson(list);
-        return json;
+    public static String CurrencyToString(List<Currency> list) {
+        return gson.toJson(list);
     }
+
 }

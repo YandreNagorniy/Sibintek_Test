@@ -2,7 +2,6 @@ package com.example.sibintektest.data.pojo;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
-import android.arch.persistence.room.TypeConverter;
 import android.arch.persistence.room.TypeConverters;
 
 import com.example.sibintektest.data.database.converters.CurrencyConverter;
