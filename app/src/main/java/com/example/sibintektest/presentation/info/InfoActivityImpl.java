@@ -10,6 +10,6 @@ public class InfoActivityImpl extends AppCompatActivity implements InfoView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info_impl);
+        setContentView(R.layout.activity_info);
     }
 }

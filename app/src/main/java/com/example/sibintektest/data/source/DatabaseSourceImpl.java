@@ -17,6 +17,7 @@ public class DatabaseSourceImpl implements DatabaseSource {
         countriesDao = App.getInstance().getDatabase().countriesDao();
     }
 
+    @Override
     public Flowable<List<CountriesModel>> getAllCountriesModel() {
         return countriesDao.getAllCountriesModel();
     }
