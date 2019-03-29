@@ -46,7 +46,7 @@ public class CountriesRvAdapter extends RecyclerView.Adapter<CountriesRvAdapter.
         holder.itemView.setOnClickListener(v -> {
             String name = list.get(position).name;
             Intent intent = new Intent(mContext, InfoActivityImpl.class);
-            intent.putExtra("name", name);
+            intent.putExtra("countryName", name);
             mContext.startActivity(intent);
         });
     }
