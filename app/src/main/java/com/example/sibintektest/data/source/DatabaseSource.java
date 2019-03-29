@@ -1,13 +1,16 @@
 package com.example.sibintektest.data.source;
 
 import com.example.sibintektest.data.pojo.CountriesModel;
+import com.example.sibintektest.data.pojo.CountriesModelInfo;
 
 import java.util.List;
 
-import io.reactivex.Flowable;
+import io.reactivex.Single;
 
 public interface DatabaseSource  {
-    Flowable<List<CountriesModel>> getAllCountriesModel();
+    Single<List<CountriesModel>> getAllCountriesModel();
 
-    void insertCountriesModelList(List<CountriesModel> countriesModelList);
+    Single<CountriesModelInfo> getCountriesModelInfo();
+
+    void insertCountriesModelList(List<CountriesModelInfo> countriesModelInfoList);
 }

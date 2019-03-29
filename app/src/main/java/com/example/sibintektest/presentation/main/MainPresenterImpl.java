@@ -2,6 +2,7 @@ package com.example.sibintektest.presentation.main;
 
 import com.example.sibintektest.data.repositories.CountriesRepository;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -12,7 +13,7 @@ public class MainPresenterImpl implements MainPresenter {
 
     MainPresenterImpl(CountriesRepository countriesRepository) {
         this.countriesRepository = countriesRepository;
-        compositeDisposable =new CompositeDisposable();
+        compositeDisposable = new CompositeDisposable();
     }
 
     @Override
@@ -22,8 +23,9 @@ public class MainPresenterImpl implements MainPresenter {
 
     @Override
     public void getDataFromDb() {
-        compositeDisposable.add(countriesRepository.getDataFromDatabase()
-                .observeOn(Schedulers.io())
+        compositeDisposable.add(countriesRepository.getAllCountriesModel()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(countriesModels ->
                                 mainView.displayCountries(countriesModels),
                         throwable -> mainView.showError()));

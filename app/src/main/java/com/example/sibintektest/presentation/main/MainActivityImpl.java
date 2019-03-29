@@ -1,14 +1,15 @@
 package com.example.sibintektest.presentation.main;
 
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.example.sibintektest.R;
 import com.example.sibintektest.data.pojo.CountriesModel;
+import com.example.sibintektest.data.pojo.CountriesModelInfo;
 import com.example.sibintektest.data.repositories.CountriesRepositoryImpl;
 import com.example.sibintektest.data.source.DatabaseSourceImpl;
 import com.example.sibintektest.data.source.LocalSourceImpl;
@@ -37,8 +38,8 @@ public class MainActivityImpl extends AppCompatActivity implements MainView {
     }
 
     @Override
-    public void displayCountries(List<CountriesModel> countriesModelList) {
-        RecyclerView.Adapter adapter = new CountriesRvAdapter(MainActivityImpl.this, countriesModelList);
+    public void displayCountries(List<CountriesModel> countriesModelInfoList) {
+        RecyclerView.Adapter adapter = new CountriesRvAdapter(countriesModelInfoList, MainActivityImpl.this);
         binding.rvCountries.setAdapter(adapter);
     }
 
