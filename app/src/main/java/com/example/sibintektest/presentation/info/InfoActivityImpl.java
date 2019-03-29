@@ -29,6 +29,7 @@ public class InfoActivityImpl extends AppCompatActivity implements InfoView {
                 new LocalSourceImpl(new WeakReference<>(this)),
                 new DatabaseSourceImpl(), new NetworkSourceImpl()));
 
+        infoPresenter.attachView(this);
         if (getIntent() != null) {
             String countryName = getIntent().getStringExtra("countryName");
             infoPresenter.getCountryData(countryName);
@@ -41,11 +42,16 @@ public class InfoActivityImpl extends AppCompatActivity implements InfoView {
         Glide.with(this)
                 .load(countriesModelInfo.getFlag())
                 .into(binding.ivInfoFlag);
-
     }
 
     @Override
     public void showError() {
         Toast.makeText(this, "Данных о стране нет", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        infoPresenter.detachView();
+        super.onDestroy();
     }
 }

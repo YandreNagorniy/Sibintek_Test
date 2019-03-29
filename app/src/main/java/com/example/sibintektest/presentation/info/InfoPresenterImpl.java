@@ -26,7 +26,8 @@ public class InfoPresenterImpl implements InfoPresenter {
         compositeDisposable.add(countriesRepository.getCountriesModelInfo(countryName)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(countriesModelInfo -> infoView.displayCountryInfo(countriesModelInfo),
+                .subscribe(countriesModelInfo ->
+                                infoView.displayCountryInfo(countriesModelInfo),
                         throwable -> infoView.showError()));
     }
 
