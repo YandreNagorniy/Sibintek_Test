@@ -18,8 +18,8 @@ import com.example.sibintektest.presentation.main.MainPresenterImpl;
 import java.lang.ref.WeakReference;
 
 public class InfoActivityImpl extends AppCompatActivity implements InfoView {
-    private ActivityInfoBinding binding;
     private InfoPresenter infoPresenter;
+    private ActivityInfoBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
