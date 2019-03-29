@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.ahmadrosid.svgloader.SvgLoader;
-import com.bumptech.glide.Glide;
 import com.example.sibintektest.R;
 import com.example.sibintektest.data.pojo.CountriesModel;
 import com.example.sibintektest.databinding.CardCountriesBinding;
@@ -52,6 +51,10 @@ public class CountriesRvAdapter extends RecyclerView.Adapter<CountriesRvAdapter.
             intent.putExtra("countryName", name);
             mContext.startActivity(intent);
         });
+    }
+
+    public void onDestroy() {
+        SvgLoader.pluck().close();
     }
 
     @Override

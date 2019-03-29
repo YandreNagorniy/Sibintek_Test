@@ -18,13 +18,20 @@
 
         <ImageView
             android:id="@+id/ivInfo_Flag"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@id/tvInfo_countryName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/gl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.35" />
 
         <TextView
             android:id="@+id/tvInfo_countryTitle"
@@ -36,22 +43,23 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/tvInfo_countryName"
-            app:layout_constraintEnd_toStartOf="@id/tvInfo_countryName"
-            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintEnd_toStartOf="@id/gl"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvInfo_countryName" />
 
         <TextView
             android:id="@+id/tvInfo_countryName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
             android:maxLines="4"
             android:text="@{country.name}"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tvInfo_countryTitle"
+            app:layout_constraintStart_toEndOf="@id/gl"
             app:layout_constraintTop_toBottomOf="@id/ivInfo_Flag"
             tools:text="Россия" />
 
@@ -75,22 +83,22 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/tvInfo_capitalName"
-            app:layout_constraintEnd_toStartOf="@id/tvInfo_capitalName"
-            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintEnd_toStartOf="@id/gl"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvInfo_capitalName" />
 
         <TextView
             android:id="@+id/tvInfo_capitalName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:gravity="center"
             android:text="@{country.capital}"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tvInfo_capitalTitle"
+            app:layout_constraintStart_toEndOf="@id/gl"
             app:layout_constraintTop_toBottomOf="@id/v1"
             tools:text="Москва" />
 
@@ -108,14 +116,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             android:text="@string/currency"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/tvInfo_capitalName"
-            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintEnd_toStartOf="@id/gl"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/v2" />
 
@@ -126,22 +131,21 @@
             android:text="@string/code"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@id/tvInfo_currencyCodeName"
+            app:layout_constraintEnd_toStartOf="@id/gl"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvInfo_currencyCodeName" />
 
         <TextView
             android:id="@+id/tvInfo_currencyCodeName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
+            android:gravity="center"
             android:text="@{country.currencyInfo.get(0).code}"
-            app:layout_constraintStart_toEndOf="@id/tvInfo_currencyCodeTitle"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/gl"
             app:layout_constraintTop_toBottomOf="@+id/tvInfo_currencyTitle"
             tools:text="code" />
 
@@ -152,20 +156,21 @@
             android:text="@string/name"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@id/tvInfo_currencyName"
+            app:layout_constraintEnd_toStartOf="@id/gl"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvInfo_currencyName" />
 
         <TextView
             android:id="@+id/tvInfo_currencyName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:gravity="center"
             android:text="@{country.currencyInfo.get(0).name}"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tvInfo_currencyCodeTitle"
+            app:layout_constraintStart_toEndOf="@id/gl"
             app:layout_constraintTop_toBottomOf="@id/tvInfo_currencyCodeName"
             tools:text="name" />
 
@@ -176,20 +181,21 @@
             android:text="@string/symbol"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@id/tvInfo_currencySymbolName"
+            app:layout_constraintEnd_toStartOf="@id/gl"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvInfo_currencySymbolName" />
 
         <TextView
             android:id="@+id/tvInfo_currencySymbolName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:gravity="center"
             android:text="@{country.currencyInfo.get(0).symbol}"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tvInfo_currencyCodeTitle"
+            app:layout_constraintStart_toEndOf="@id/gl"
             app:layout_constraintTop_toBottomOf="@id/tvInfo_currencyName"
             tools:text="symbol" />
 

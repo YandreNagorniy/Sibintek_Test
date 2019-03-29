@@ -1,13 +1,11 @@
 package com.example.sibintektest.presentation.info;
 
-import android.app.Activity;
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.ahmadrosid.svgloader.SvgLoader;
-import com.bumptech.glide.Glide;
 import com.example.sibintektest.R;
 import com.example.sibintektest.data.pojo.CountriesModelInfo;
 import com.example.sibintektest.data.repositories.CountriesRepositoryImpl;
@@ -15,7 +13,6 @@ import com.example.sibintektest.data.source.DatabaseSourceImpl;
 import com.example.sibintektest.data.source.LocalSourceImpl;
 import com.example.sibintektest.data.source.NetworkSourceImpl;
 import com.example.sibintektest.databinding.ActivityInfoBinding;
-import com.example.sibintektest.presentation.main.MainPresenterImpl;
 
 import java.lang.ref.WeakReference;
 
@@ -44,9 +41,6 @@ public class InfoActivityImpl extends AppCompatActivity implements InfoView {
         SvgLoader.pluck().with(this)
                 .setPlaceHolder(R.mipmap.ic_launcher, R.mipmap.ic_launcher)
                 .load(countriesModelInfo.getFlag(), binding.ivInfoFlag);
-//        Glide.with(this)
-//                .load(countriesModelInfo.getFlag())
-//                .into(binding.ivInfoFlag);
     }
 
     @Override
@@ -56,6 +50,7 @@ public class InfoActivityImpl extends AppCompatActivity implements InfoView {
 
     @Override
     protected void onDestroy() {
+        SvgLoader.pluck().close();
         infoPresenter.detachView();
         super.onDestroy();
     }
