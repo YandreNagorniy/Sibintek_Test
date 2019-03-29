@@ -1,10 +1,12 @@
 package com.example.sibintektest.presentation.info;
 
+import android.app.Activity;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.ahmadrosid.svgloader.SvgLoader;
 import com.bumptech.glide.Glide;
 import com.example.sibintektest.R;
 import com.example.sibintektest.data.pojo.CountriesModelInfo;
@@ -39,9 +41,12 @@ public class InfoActivityImpl extends AppCompatActivity implements InfoView {
     @Override
     public void displayCountryInfo(CountriesModelInfo countriesModelInfo) {
         binding.setCountry(countriesModelInfo);
-        Glide.with(this)
-                .load(countriesModelInfo.getFlag())
-                .into(binding.ivInfoFlag);
+        SvgLoader.pluck().with(this)
+                .setPlaceHolder(R.mipmap.ic_launcher, R.mipmap.ic_launcher)
+                .load(countriesModelInfo.getFlag(), binding.ivInfoFlag);
+//        Glide.with(this)
+//                .load(countriesModelInfo.getFlag())
+//                .into(binding.ivInfoFlag);
     }
 
     @Override
