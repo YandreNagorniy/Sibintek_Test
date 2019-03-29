@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import com.bumptech.glide.Glide;
 import com.example.sibintektest.R;
 import com.example.sibintektest.data.pojo.CountriesModel;
-import com.example.sibintektest.data.pojo.CountriesModelInfo;
 import com.example.sibintektest.databinding.CardCountriesBinding;
 import com.example.sibintektest.presentation.info.InfoActivityImpl;
 import com.example.sibintektest.presentation.main.MainActivityImpl;
@@ -39,6 +38,7 @@ public class CountriesRvAdapter extends RecyclerView.Adapter<CountriesRvAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.binding.setCountry(list.get(position));
+
         Glide.with(mContext)
                 .load(list.get(position).flag)
                 .into(holder.binding.ivFlag);
