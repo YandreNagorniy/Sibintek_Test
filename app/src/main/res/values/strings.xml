@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Sibintek Test</string>
+    <string name="country_title">Страна:</string>
+    <string name="capital">Столица:</string>
 </resources>

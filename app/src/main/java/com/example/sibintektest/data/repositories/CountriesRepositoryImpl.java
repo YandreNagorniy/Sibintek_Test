@@ -49,8 +49,8 @@ public class CountriesRepositoryImpl implements CountriesRepository {
     }
 
     @Override
-    public Single<CountriesModelInfo> getCountriesModelInfo() {
-        return databaseSource.getCountriesModelInfo();
+    public Single<CountriesModelInfo> getCountriesModelInfo(String name) {
+        return databaseSource.getCountriesModelInfo(name);
     }
 
 }

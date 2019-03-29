@@ -14,5 +14,5 @@ public interface CountriesRepository {
 
     Single<List<CountriesModel>> getAllCountriesModel();
 
-    Single<CountriesModelInfo> getCountriesModelInfo();
+    Single<CountriesModelInfo> getCountriesModelInfo(String name);
 }

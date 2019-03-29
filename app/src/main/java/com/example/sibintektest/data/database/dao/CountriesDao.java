@@ -18,8 +18,8 @@ public interface CountriesDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertCountriesModel(List<CountriesModelInfo> countriesModelInfoList);
 
-    @Query("Select * From CountriesModelInfo")
-    Single<CountriesModelInfo> getCountriesModelInfo();
+    @Query("Select * From CountriesModelInfo where name =:name")
+    Single<CountriesModelInfo> getCountriesModelInfo(String name);
 
     @Query("SELECT name, flag  FROM CountriesModelInfo")
     Single<List<CountriesModel>> getAllCountriesModel();

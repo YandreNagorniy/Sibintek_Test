@@ -23,8 +23,8 @@ public class DatabaseSourceImpl implements DatabaseSource {
         return countriesDao.getAllCountriesModel();
     }
     @Override
-    public Single<CountriesModelInfo> getCountriesModelInfo() {
-        return countriesDao.getCountriesModelInfo();
+    public Single<CountriesModelInfo> getCountriesModelInfo(String name) {
+        return countriesDao.getCountriesModelInfo(name);
     }
 
     @Override

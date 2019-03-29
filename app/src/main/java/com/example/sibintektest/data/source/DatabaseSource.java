@@ -7,10 +7,10 @@ import java.util.List;
 
 import io.reactivex.Single;
 
-public interface DatabaseSource  {
+public interface DatabaseSource {
     Single<List<CountriesModel>> getAllCountriesModel();
 
-    Single<CountriesModelInfo> getCountriesModelInfo();
+    Single<CountriesModelInfo> getCountriesModelInfo(String name);
 
     void insertCountriesModelList(List<CountriesModelInfo> countriesModelInfoList);
 }
